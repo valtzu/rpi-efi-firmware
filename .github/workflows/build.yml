@@ -1,0 +1,38 @@
+name: EDK2 build
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  edk2-build:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Install packages
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends acpica-tools gcc-aarch64-linux-gnu
+
+    - name: Check out code
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Build RPI_EFI.fd
+      run: make -j$(nproc) RPI_EFI.fd
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: RPI_EFI.fd
+        path: RPI_EFI.fd
+
+    - name: Upload release artifacts
+      uses: svenstaro/upload-release-action@v2
+      with:
+        promote: true
+        file: RPI_EFI.fd

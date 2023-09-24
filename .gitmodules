@@ -1,0 +1,5 @@
+[submodule "pftf-rpi4"]
+	path = pftf-rpi4
+	url = https://github.com/pftf/RPi4
+	shallow = true
+	ignore = dirty
