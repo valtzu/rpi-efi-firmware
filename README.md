@@ -5,13 +5,7 @@ I noticed I'm including EDK2 build in many of my projects, and it takes a lot of
 ### How to build
 
 ```shell
-make
-```
-
-...or with pre-generated private key
-
-```shell
-make PRIVATE_KEY=/path/to/key.pem "CN=My Organization"
+make -j$(nproc)
 ```
 
 #### Difference vs. pftf/RPi4
