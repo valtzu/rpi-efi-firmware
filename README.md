@@ -20,3 +20,4 @@ make PRIVATE_KEY=/path/to/key.pem "CN=My Organization"
 2. USB boot works on 6+ kernels also
 3. GPU firmware, config.txt & device tree overlays are not bundled, we only build RPI_EFI.fd here
 4. No support for network boot (http / tftp)
+5. No embedded default keys for Secure Boot, use [`virt-firmware`](https://pypi.org/project/virt-firmware/) to pre-populate keys
