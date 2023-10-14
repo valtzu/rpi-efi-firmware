@@ -32,7 +32,7 @@ patch: submodules
 	patch -p1 --binary -d pftf-rpi4/edk2 -i ../0001-MdeModulePkg-UefiBootManagerLib-Signal-ReadyToBoot-o.patch
 	patch -p1 --binary -d pftf-rpi4/edk2-platforms -i ../0002-Check-for-Boot-Discovery-Policy-change.patch
 	patch -p1 --binary -d pftf-rpi4/edk2-platforms -i $(CURDIR)/0001-RPi4-fix-serial-number.patch
-	patch -p1 --binary -d pftf-rpi4/edk2-platforms -i $(CURDIR)/0002-RPi4-fix-usb-on-rec
+	patch -p1 --binary -d pftf-rpi4/edk2-platforms -i $(CURDIR)/0002-RPi4-fix-usb-on-recent-kernels.patch
 
 edk2-setup: patch
 	mkdir -p $$WORKSPACE
