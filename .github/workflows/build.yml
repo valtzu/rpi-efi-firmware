@@ -25,14 +25,15 @@ jobs:
     - name: Build RPI_EFI.fd
       run: make -j$(nproc) RPI_EFI.fd
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: RPI_EFI.fd
-        path: RPI_EFI.fd
+    - name: Generate SHA256SUMS
+      run: sha256sum RPI_EFI.fd > SHA256SUMS
 
-    - name: Upload release artifacts
+    - name: Upload RPI_EFI.fd to release
       uses: svenstaro/upload-release-action@v2
       with:
-        promote: true
         file: RPI_EFI.fd
+
+    - name: Upload SHA256SUMS to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: SHA256SUMS
