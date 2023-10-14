@@ -20,8 +20,7 @@ RPI_EFI.fd: edk2-setup keys
 	    --pcd PcdRamMoreThan3GB=1 \
 	    --pcd PcdSystemTableMode=2 \
 	    -D SECURE_BOOT_ENABLE=TRUE \
-	    -D INCLUDE_TFTP_COMMAND=TRUE \
-	    -D NETWORK_ISCSI_ENABLE=TRUE \
+	    -D NETWORK_ENABLE=FALSE \
 	    -D SMC_PCI_SUPPORT=1 \
 	    -D DEFAULT_KEYS=TRUE \
 	    -D PK_DEFAULT_FILE=$$WORKSPACE/keys/pk.cer \
