@@ -12,13 +12,13 @@ RPI_EFI.fd: edk2-setup
 	    -p pftf-rpi4/edk2-platforms/Platform/RaspberryPi/RPi4/RPi4.dsc \
 	    --pcd gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor=L"https://github.com/valtzu/rpi-efi-firmware" \
 	    --pcd gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVersionString=L"EDK2 Firmware $(VERSION)" \
-	    --pcd gEfiMdeModulePkgTokenSpaceGuid.PcdRequireSelfSignedPk=TRUE \
 	    --pcd gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut=0 \
 	    --pcd gRaspberryPiTokenSpaceGuid.PcdRamLimitTo3GB=0 \
 	    --pcd gRaspberryPiTokenSpaceGuid.PcdRamMoreThan3GB=1 \
 	    --pcd gRaspberryPiTokenSpaceGuid.PcdSystemTableMode=2 \
 	    -D SECURE_BOOT_ENABLE=TRUE \
-	    -D NETWORK_ENABLE=FALSE
+	    -D NETWORK_ISCSI_ENABLE=TRUE \
+	    -D INCLUDE_TFTP_COMMAND=TRUE
 	cp -f Build/RPi4/$(RELEASE_TYPE)_GCC5/FV/RPI_EFI.fd ./
 
 submodules:
