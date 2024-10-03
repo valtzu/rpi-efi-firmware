@@ -1,3 +1,6 @@
+**Note:** Everything in this repo has been upstreamed to EDK2, hence this is no longer relevant
+
+
 ### RPi4 EFI firmware
 
 I noticed I'm including EDK2 build in many of my projects, and it takes a lot of time in the pipelines to build it, so I decided to create a separate repository for it.
